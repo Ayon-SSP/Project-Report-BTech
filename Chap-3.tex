@@ -56,4 +56,133 @@ Developing a Product Shelf Life Reminder Application requires a structured metho
     - Avoid any discriminatory or harmful practices in suggesting product management or usage, and ensure unbiased recommendations.
 
 15. Data Maintenance:
-    - Regularly update and verify product information and shelf life data to maintain the application's accuracy.
+    - Regularly update and verify product information and shelf life data to maintain the application's accuracy. 
+    \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\
+
+\section{Project Flow diagram}
+
+\begin{verbatim}
+Project Flowchart:
+1. Start
+   |
+2. User Input
+   |
+3. Is the product new or existing?
+   |
+|---(New Product)---[4]---> Create New Entry
+   |
+|---(Existing Product)---[5]---> Select Existing Product
+   |
+6. Set Reminder Date
+   |
+   |
+[7]---> Reminder Date Set
+   |
+|---[8]---> Notify User
+   |
+|---[9]---> Update Product Info
+   |
+10. Reminder Complete
+   |
+   |
+11. End
+\end{verbatim} 
+
+\section{UML (Unified Modeling Language) diagram}
+\begin{verbatim}
+----------------------------------
+        Class Diagram
+----------------------------------
++--------------------------------+
+|   PRODUCT SHELF LIFE           |
+|--------------------------------|
+| - productId: int               |
+| - productName: string          |
+| - expirationDate: date         |
+| - reminderDate: date           |
+|--------------------------------|
+| + setReminderDate(): void     |
+| + getReminderDate(): date     |
+| + isExpired(): bool            |
++--------------------------------+
+
++--------------------------------+
+|             USER               |
+|--------------------------------|
+| - userId: int                  |
+| - username: string             |
+| - password: string             |
+|--------------------------------|
+| + register(): void             |
+| + login(): bool                |
++--------------------------------+
+
++--------------------------------+
+|   SHELF LIFE REMINDER          |
+|--------------------------------|
+| - reminderId: int              |
+| - userId: int                  |
+| - productId: int               |
+|--------------------------------|
+| + sendReminder(): void        |
+| + createReminder(): void      |
++--------------------------------+
+
+\end{verbatim}
+\section{Use Case Diagram}
+\begin{verbatim}
+Use Cases:
+1. Register Account
+2. Log In
+3. Log Out
+4. Add Product
+5. Set Reminder
+6. Send Reminder
+
+Actors:
+- User
+- System
+
+Associations:
+- User > (1. Register Account)
+- User > (2. Log In)
+- User > (3. Log Out)
+- User > (4. Add Product)
+- User > (5. Set Reminder)
+- System > (6. Send Reminder)
+
+\end{verbatim} 
+END \\ \\ \\ \\ \\ \\ \\
+
+\section{Interaction Overview Diagram (IOD)}
+\begin{verbatim}
+----------------------------------
+Interaction Overview Diagram (IOD)
+----------------------------------
+
+Overview:
+The diagram illustrates the process of setting and sending reminders for products with expiring shelf life.
+
+Steps:
+1. User Registration (Create Account)
+   - User provides registration details.
+   - System validates and creates a user account.
+
+2. User Login (Authenticate)
+   - User logs in with their account credentials.
+   - System verifies user identity.
+
+3. Product Entry (Add Product)
+   - User adds product details.
+   - System calculates and sets the reminder date.
+
+4. Reminder Sending Loop (Check and Send)
+   - System continuously checks the current date.
+   - If the current date equals the reminder date, it sends a reminder to the user.
+
+5. Logout (End Session)
+   - User logs out.
+
+-------------------------
+End of Interaction
+\end{verbatim}
